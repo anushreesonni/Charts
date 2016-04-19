@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="googlebot" content="noindex, nofollow">
+
+
+  <script type="text/javascript" src="//code.jquery.com/jquery-1.9.1.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="/css/result-light.css">
+
+
+  <style type="text/css">
+
+  </style>
+
+  <title><%= title %></title>
+
+
+
+
+  <script type='text/javascript'>//<![CDATA[
+
+  $(function () {
+    // Create the chart
+    $('#container').highcharts({
+      chart: {
+        type: 'column'
+      },
+      title: {
+        text: 'Heartrate'
+      },
+      subtitle: {
+        text: 'Heartrate vs Time'
+      },
+      xAxis: {
+        type: 'time'
+      },
+      yAxis: {
+        title: {
+          text: 'Heartrate (per minute)'
+        }
+
+      },
+      legend: {
+        enabled: false
+      },
+      plotOptions: {
+        series: {
+          borderWidth: 0,
+          dataLabels: {
+            enabled: true,
+            format: '{point.y:.1f}%'
+          }
+        }
+      },
+
+      tooltip: {
+        headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
+        pointFormat: '<span style="color:{point.color}">{point.x} min</span>: <b>{point.y:.2f} beats per min</b><br/>'
+      },
+
+      series: [{
+        name: 'Heartrate',
+        colorByPoint: true,
+        
+        data: [{
+          name: <%= result[0]['time'] %>,
+          x: <%= result[0]['time'] %>,
+          y: <%= result[0]['heartrate'] %>
+          
+        }, {
+          name: <%= result[1]['time'] %>,
+          x: <%= result[1]['time'] %>,
+          y: <%= result[1]['heartrate'] %>,
+        }, {
+          name: <%= result[2]['time'] %>,
+          x: <%= result[2]['time'] %>,
+          y: <%= result[2]['heartrate'] %>,
+        },
+        {
+          name: <%= result[3]['time'] %>,
+          x: <%= result[3]['time'] %>,
+          y: <%= result[3]['heartrate'] %>,
+        }
+        
+        ]
+        
+      }]
+          
+        
+      
+    });
+    
+  });
+  //]]>
+	
+  </script>
+
+
+</head>
+
+<body>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/data.js"></script>
+<script src="https://code.highcharts.com/modules/drilldown.js"></script>
+<div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+
+</body>
+
+</html>
