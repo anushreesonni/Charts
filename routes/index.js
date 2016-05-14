@@ -8,7 +8,7 @@ MongoClient.connect('mongodb://@ds023108.mlab.com:23108/charts', function(err, d
 		  respond();
 		}, 5000);
 	  function respond(){
-		  db.collection('heartrae').find().sort({_id:-1}).toArray(function(err, result) { //Pick all data in the db
+		  db.collection('').find().sort({_id:-1}).toArray(function(err, result) { //Pick all data in the db
 			    if (err) {
 			      throw err;
 			    }
